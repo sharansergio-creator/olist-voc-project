@@ -164,24 +164,22 @@ subsequent_orders AS (
         f.customer_unique_id,
         MIN(DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts))) AS days_to_next_order,
         MAX(
-            CASE 
-                WHEN DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 0 AND 6 
-                THEN 1 ELSE 0 
-            END
-        ) AS is_split_basket_7d,
-        MAX(
-            CASE 
-                WHEN DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 7 AND 90 
-                THEN 1 ELSE 0 
-            END
-        ) AS repeat_90d_flag
+        CASE WHEN v.order_purchase_timestamp > f.first_delivery_ts
+              AND DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 0 AND 6
+             THEN 1 ELSE 0 END
+    ) AS is_split_basket_7d,
+    MAX(
+        CASE WHEN v.order_purchase_timestamp > f.first_delivery_ts
+              AND DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 7 AND 90
+             THEN 1 ELSE 0 END
+    ) AS repeat_90d_flag
     FROM first_orders f
     JOIN raw_customers c ON f.customer_unique_id = c.customer_unique_id
     JOIN raw_orders v 
       ON c.customer_id = v.customer_id
      AND v.order_id <> f.first_order_id
      AND v.order_status NOT IN ('canceled', 'unavailable')
-     AND DATE(v.order_purchase_timestamp) >= DATE(f.first_delivery_ts)
+     AND v.order_purchase_timestamp > f.first_delivery_ts
     GROUP BY f.customer_unique_id
 )
 SELECT 
