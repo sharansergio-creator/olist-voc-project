@@ -60,7 +60,7 @@ An end-to-end analytics engineering and AI text-classification pipeline built on
 
 ```bash
 # 1. Clone repository & install dependencies
-git clone [https://github.com/sharansergio-creator/olist-voc-project.git](https://github.com/sharansergio-creator/olist-voc-project.git)
+git clone https://github.com/sharansergio-creator/olist-voc-project.git
 cd olist-voc-project
 pip install -r requirements.txt
 
