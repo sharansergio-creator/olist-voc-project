@@ -162,6 +162,7 @@ first_orders AS (
 subsequent_orders AS (
     SELECT 
         f.customer_unique_id,
+        -- Unrestricted days to next observed order across full dataset; repeat_90d_flag restricts to Days 7–90
         MIN(DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts))) AS days_to_next_order,
         MAX(
         CASE WHEN v.order_purchase_timestamp > f.first_delivery_ts
