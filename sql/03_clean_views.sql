@@ -35,7 +35,7 @@ dedup_reviews AS (
         review_answer_timestamp,
         ROW_NUMBER() OVER (
             PARTITION BY order_id 
-            ORDER BY review_answer_timestamp DESC, review_creation_date DESC, review_id DESC
+            ORDER BY review_creation_date DESC, review_answer_timestamp DESC, review_id DESC
         ) AS rn
     FROM raw_order_reviews
 )
@@ -111,8 +111,8 @@ SELECT
     r.review_answer_timestamp,
     CASE 
         WHEN o.order_delivered_customer_date IS NOT NULL 
-             AND r.review_answer_timestamp IS NOT NULL
-             AND r.review_answer_timestamp < o.order_delivered_customer_date 
+             AND r.review_creation_date IS NOT NULL
+             AND r.review_creation_date < o.order_delivered_customer_date 
             THEN 1 
         ELSE 0 
     END AS review_before_delivery
@@ -127,23 +127,24 @@ WHERE o.order_purchase_timestamp >= '2017-01-01'
 
 
 -- =========================================================================
--- VIEW 2: vw_customer_cohort_90d (1 row per unique customer, delivery-anchored)
+-- VIEW 2: vw_customer_cohort_90d (1 row per unique delivered customer)
 -- =========================================================================
 CREATE OR REPLACE VIEW vw_customer_cohort_90d AS
-WITH all_valid_orders AS (
+WITH delivered_orders AS (
     SELECT 
         c.customer_unique_id,
         o.order_id,
-        o.order_status,
         o.order_purchase_timestamp,
         o.order_delivered_customer_date,
         ROW_NUMBER() OVER (
             PARTITION BY c.customer_unique_id 
             ORDER BY o.order_purchase_timestamp ASC, o.order_id ASC
-        ) AS order_seq
+        ) AS delivered_seq
     FROM raw_orders o
     JOIN raw_customers c ON o.customer_id = c.customer_id
-    WHERE o.order_status NOT IN ('canceled', 'unavailable')
+    WHERE o.order_status = 'delivered'
+      AND o.order_delivered_customer_date IS NOT NULL
+      AND o.order_delivered_customer_date >= o.order_purchase_timestamp
 ),
 first_orders AS (
     SELECT 
@@ -151,24 +152,35 @@ first_orders AS (
         order_id AS first_order_id,
         order_purchase_timestamp AS first_purchase_ts,
         order_delivered_customer_date AS first_delivery_ts
-    FROM all_valid_orders
-    WHERE order_seq = 1
+    FROM delivered_orders
+    WHERE delivered_seq = 1
       AND order_purchase_timestamp >= '2017-01-01'
       AND order_purchase_timestamp < '2018-09-01'
-      AND order_status = 'delivered'
-      AND order_delivered_customer_date IS NOT NULL
-      AND order_delivered_customer_date >= order_purchase_timestamp
       -- Must have full 90-day observation window before 2018-08-31
       AND DATE(order_delivered_customer_date) <= DATE_SUB('2018-08-31', INTERVAL 90 DAY)
 ),
 subsequent_orders AS (
     SELECT 
         f.customer_unique_id,
-        MIN(DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts))) AS days_to_next_order
+        MIN(DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts))) AS days_to_next_order,
+        MAX(
+            CASE 
+                WHEN DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 0 AND 6 
+                THEN 1 ELSE 0 
+            END
+        ) AS is_split_basket_7d,
+        MAX(
+            CASE 
+                WHEN DATEDIFF(DATE(v.order_purchase_timestamp), DATE(f.first_delivery_ts)) BETWEEN 7 AND 90 
+                THEN 1 ELSE 0 
+            END
+        ) AS repeat_90d_flag
     FROM first_orders f
-    JOIN all_valid_orders v 
-      ON f.customer_unique_id = v.customer_unique_id
+    JOIN raw_customers c ON f.customer_unique_id = c.customer_unique_id
+    JOIN raw_orders v 
+      ON c.customer_id = v.customer_id
      AND v.order_id <> f.first_order_id
+     AND v.order_status NOT IN ('canceled', 'unavailable')
      AND DATE(v.order_purchase_timestamp) >= DATE(f.first_delivery_ts)
     GROUP BY f.customer_unique_id
 )
@@ -178,8 +190,8 @@ SELECT
     f.first_purchase_ts,
     f.first_delivery_ts,
     s.days_to_next_order,
-    CASE WHEN s.days_to_next_order IS NOT NULL AND s.days_to_next_order < 7 THEN 1 ELSE 0 END AS is_split_basket_7d,
-    CASE WHEN s.days_to_next_order IS NOT NULL AND s.days_to_next_order BETWEEN 7 AND 90 THEN 1 ELSE 0 END AS repeat_90d_flag
+    COALESCE(s.is_split_basket_7d, 0) AS is_split_basket_7d,
+    COALESCE(s.repeat_90d_flag, 0) AS repeat_90d_flag
 FROM first_orders f
 LEFT JOIN subsequent_orders s ON f.customer_unique_id = s.customer_unique_id;
 

@@ -87,7 +87,7 @@ SELECT
     o.freight_ratio,
     o.primary_category,
     o.review_before_delivery,
-    ROUND(o.order_gmv * t.sample_weight, 2) AS weighted_gmv_at_risk
+    ROUND(o.order_gmv * t.sample_weight, 2) AS weighted_gmv_associated
 FROM ai_review_tags t
 JOIN vw_pbi_orders o ON t.order_id = o.order_id;
 
@@ -110,7 +110,29 @@ SELECT
     o.order_gmv AS first_order_gmv,
     o.primary_category AS first_category,
     o.review_score AS first_review_score,
-    t.primary_issue AS first_ai_issue
+    t.primary_issue AS first_ai_issue,
+    t.sample_weight AS first_ai_sample_weight,
+    CASE WHEN t.order_id IS NOT NULL THEN 1 ELSE 0 END AS is_ai_sampled
 FROM vw_customer_cohort_90d c
 JOIN vw_pbi_orders o ON c.first_order_id = o.order_id
 LEFT JOIN ai_review_tags t ON c.first_order_id = t.order_id;
+
+-- =========================================================================
+-- AUDIT 3: Cohort Retention & Survey-Weighted AI Retention Verification
+-- =========================================================================
+SELECT 
+    COUNT(*) AS eligible_cohort_customers,
+    SUM(is_split_basket_7d) AS split_basket_7d_customers,
+    SUM(repeat_90d_flag) AS repeat_90d_customers,
+    ROUND(100.0 * AVG(repeat_90d_flag), 2) AS overall_90d_repeat_pct
+FROM vw_pbi_cohort_retention;
+
+SELECT 
+    first_ai_issue,
+    COUNT(*) AS sampled_cohort_customers,
+    ROUND(SUM(first_ai_sample_weight), 0) AS est_written_review_cohort,
+    ROUND(100.0 * SUM(repeat_90d_flag * first_ai_sample_weight) / SUM(first_ai_sample_weight), 2) AS weighted_90d_repeat_pct
+FROM vw_pbi_cohort_retention
+WHERE is_ai_sampled = 1
+GROUP BY first_ai_issue
+ORDER BY weighted_90d_repeat_pct DESC;
