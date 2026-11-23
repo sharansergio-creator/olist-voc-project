@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS ai_review_tags (
     sample_weight DECIMAL(10, 4) NOT NULL, -- Exact weight: N_h / n_h
     primary_issue VARCHAR(50) NOT NULL,
     is_complaint TINYINT(1) NOT NULL,
-    is_dev_set TINYINT(1) DEFAULT 0,     -- 1 = first 100 rows used for prompt tuning
+    is_dev_set TINYINT(1) NOT NULL DEFAULT 0, -- 1 = 100-review human audit validation slice (20 per star rating)
     classified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

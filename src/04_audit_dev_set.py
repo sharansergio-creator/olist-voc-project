@@ -52,7 +52,7 @@ def export_blind_dev_set(force: bool = False):
     df = pd.read_sql(text(query), engine)
     os.makedirs("data/processed", exist_ok=True)
     df.to_csv(OUT_PATH, index=False, encoding="utf-8-sig")
-    print(f"Exported {len(df)} blind dev-set reviews to {OUT_PATH} (ai_label withheld for unbiased human annotation).")
+    print(f"Exported {len(df)} blind audit reviews to {OUT_PATH} (ai_label withheld for unbiased human annotation).")
 
 
 def score_dev_set():
@@ -62,6 +62,12 @@ def score_dev_set():
     human_df = pd.read_csv(OUT_PATH).fillna("")
     if "human_label" not in human_df.columns:
         raise ValueError("Missing 'human_label' column in dev_set_audit_100.csv")
+
+    if len(human_df) != 100:
+        raise ValueError(f"Expected exactly 100 rows in {OUT_PATH}, found {len(human_df)}.")
+
+    if human_df["order_id"].duplicated().any():
+        raise ValueError(f"Duplicate order_id entries found in {OUT_PATH}.")
 
     unlabeled = human_df[~human_df["human_label"].isin(VALID_CATEGORIES)]
     if not unlabeled.empty:
@@ -75,15 +81,19 @@ def score_dev_set():
         WHERE is_dev_set = 1
     """
     ai_df = pd.read_sql(text(ai_query), engine)
+
+    if set(human_df["order_id"]) != set(ai_df["order_id"]):
+        raise ValueError("Audit CSV order_id set does not match MySQL is_dev_set = 1 IDs.")
+
     merged = human_df.drop(columns=["ai_label"], errors="ignore").merge(ai_df, on="order_id", how="inner")
 
     if len(merged) != 100:
-        raise ValueError(f"Expected 100 matched holdout rows, found {len(merged)}.")
+        raise ValueError(f"Expected 100 matched audit rows, found {len(merged)}.")
 
     exact_matches = int((merged["ai_label"] == merged["human_label"]).sum())
     acc = (exact_matches / len(merged)) * 100
 
-    print(f"Holdout Audit Accuracy (Independent Human Labels vs. MySQL AI Tags): {acc:.1f}% ({exact_matches}/{len(merged)} exact matches)")
+    print(f"Human-Audit Agreement (Blind Human Labels vs. MySQL AI Tags): {acc:.1f}% ({exact_matches}/{len(merged)} exact matches)")
 
     mismatches = merged[merged["ai_label"] != merged["human_label"]]
     if not mismatches.empty:

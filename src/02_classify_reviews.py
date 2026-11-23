@@ -106,7 +106,7 @@ def build_stratified_sample(sample_per_star: int = 1000, seed: int = 42) -> pd.D
         sub = stratum.sample(n=n_samp, random_state=seed).copy()
         sub["stratum_pop_n"] = n_pop
         sub["stratum_sample_n"] = n_samp
-        sub["sample_weight"] = round(n_pop / n_samp, 4)
+        sub["sample_weight"] = n_pop / n_samp
         sampled_parts.append(sub)
 
     full_sample = pd.concat(sampled_parts, ignore_index=True)
