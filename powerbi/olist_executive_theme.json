@@ -1,0 +1,30 @@
+{
+  "name": "Olist Executive VoC Theme",
+  "dataColors": [
+    "#2563EB",
+    "#E11D48",
+    "#0D9488",
+    "#D97706",
+    "#4F46E5",
+    "#64748B",
+    "#9333EA",
+    "#0284C7"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0F172A",
+  "tableAccent": "#2563EB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#CBD5E1" } }, "radius": 6 }],
+        "title": [{ "fontColor": { "solid": { "color": "#0F172A" } }, "fontSize": 11, "bold": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F1F5F9" } }, "transparency": 0 }]
+      }
+    }
+  }
+}

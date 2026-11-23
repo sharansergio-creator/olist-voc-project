@@ -1,0 +1,114 @@
+﻿order_id,review_score,title,message,ai_label,human_label
+097c2a2e5ea719c510238bad5d902cef,1,,:(,Positive / Other,Positive / Other
+167c7fa7ebae209de1dae58a0ff6569b,1,,"Fiz a compra de duas panelas, uma de 20 cm que chegou e outra de 16 cm que não recebi ainda. Aguardo resposta.",Wrong / Incomplete Order,Wrong / Incomplete Order
+1a41f24ba682e06e82dd1ce5f77b6f5e,1,,Não recebi o produto ainda.,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+1d5d2c4b53d1185f9184aac9e441e521,1,,"Prezados o produto veio faltando o shampoo e o creme de hidratação. 
+
+Na embalagem veio somente o creme de pentear.",Wrong / Incomplete Order,Wrong / Incomplete Order
+2025b5bad835a500f8422436e24bd78f,1,,"Não recebi o produto. E venho tentando, a 3 semanas,fazer contato por email ou telefone e não consigo. ÚNICA RESPOSTA QUE RECEBO A MINHA CONSULTA É QUE O ENVIO ESTÁ ATRASADO.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+3d5aa3b04a54208866a9a716d80e6b89,1,,produto entregue nao funciona,Damaged / Defective Item,Damaged / Defective Item
+4abe45d3258a19bc521cdd64b940acf1,1,,ProdutO errado e quebrado,Damaged / Defective Item,Damaged / Defective Item
+5b4e9a12d219f34f5c2de9f8d620b19d,1,,Esta demorando muito para entrega,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+5b96fa278c2b3c1e29c190ef1b651d08,1,,"No anuncio não diz que o produto é ""compatível"" comprei como se fosse Original, apenas percebi quando chegou, se eu soubesse que não era original não teria comprado.",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+5d333a08c9bce16bf18ed14c4469c1ce,1,,"Recebi, antes do prazo de entrega. Porém no mesmo dia que recebi o produto e quebrou ao utilizar em um balão de soco. Inadmissível, o produto é para defesa pessoal, e não pode quebrar. Já mandei foto",Damaged / Defective Item,Damaged / Defective Item
+63e5ce05a132aa8375fcde048ad4482a,1,,Ainda nao recebi,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+6649ebec1c6f3e185a64238dc8729d72,1,,Querro estormo,Seller / Support Communication,Seller / Support Communication
+7920529b8621a433718e66c72a763bdc,1,,", muito ruim !",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+7d20c79f25c64f2c7feca12d01677c8e,1,Comprei 4 produtos e rece,Comprei 4 produtos e recebi apenas um. Quero receber os três restantes.,Wrong / Incomplete Order,Wrong / Incomplete Order
+9f0e70e8d046d9e0626bbdaf1aff88c4,1,,"Talvez a opinião mude sobre a avaliação geral, mas até agora não recebi o produto.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+a8dbaf4197af2f96f35fb65ad457c912,1,Péssimo,Comprei um produto e recebi outro!!! Totalmente insatisfeita.,Wrong / Incomplete Order,Wrong / Incomplete Order
+ad6ee9479111c0c9b69de241c98009df,1,,O cheiro do produto e muito forte! Mas pelo preço não tenho do que reclamar!,Positive / Other,Product Quality / Expectation Mismatch
+b51f2621265ffd44eb7cdc9358836225,1,,"Fiz a compra do kit de quatro pneus.
+A entrega foi feita fora do prazo..e ainda quando recebi chegou apenas 2 unidades.
+
+Deprimente.",Wrong / Incomplete Order,Wrong / Incomplete Order
+b55d769ec9ecc14f35096c6a4c5d83d7,1,,"Produto de qualidade baixa, o vidro fica embaçado sempre, veio sem embalagem...",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+b711b5dd3754e257032e9ecb01f70168,1,,"As dimensões da capa não serviu para Del Rey , material fino, o elastico já se partiu ao coloca e a capa pelo tamanha não ser o compatível para o veículo isso porque colocamos a capa em 2 pessoas .",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+c21fcb36121a9b1c65eed7b20f0862bd,1,peça errada,"o produto não veio como esperávamos, não deu certo pro carro.",Wrong / Incomplete Order,Wrong / Incomplete Order
+d43703ed017fdf31282e58bc07edb65f,1,,RECEBI UMA UNIDADE SENDO QUE COMPREI 2!!!!!!,Wrong / Incomplete Order,Wrong / Incomplete Order
+d78f157135db9ba4f043330c2b62dfb4,1,,"Não recomendo, uma total má prestação do serviço, desrespeito Código de Defesa do Consumidor.",Seller / Support Communication,Seller / Support Communication
+ea60e9579f440bbca132b795ff54807f,1,,Meu produto que CANCELEI antes de gerar NFE ainda não chegou para eu recusar.,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+f05aaa145a323239764fc5948997db58,1,Não recomendo!!!,"Comprei um carregador veicular da Belkin, porém, ao ligar no veiculo pela primeira vez queimou o carregador e a tomada do veículo.",Damaged / Defective Item,Damaged / Defective Item
+f8355c46f4d1be555ecad989a0d0c143,1,,correios do rio fazendo trabalho ridículo!,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+f967b3b4e10db096bfc62535abb40d43,1,,Houve algum problema na entrega e o produto não chegou.,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+f9dacb87560bf2a37dfc69ef1c0d4e08,1,,não recebi,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+13c4f7497ce2f3ae34e441c7514215f3,2,,A empresa deixou de dar enfase a marca do item que estava sendo vendido. Acabei com um produto chines de qualidade duvidosa.,Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+30dfb5b33bf44683be3e2f7df4bdd769,2,,Não veio na caixa o moedor de pimenta,Wrong / Incomplete Order,Wrong / Incomplete Order
+4ccd8da82485c892ae90284af589153a,2,,Pela indicação achei que peça seria maior.,Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+583ad689dbd7bd2d996f11aa82865ae5,2,O produto que recebi é di,"Comprei um celular CAT S30 e recebi um aparelho inferior no preço e na qualidade, recebi um CAT B30.",Wrong / Incomplete Order,Wrong / Incomplete Order
+63154c299d1199262f60527437e156a5,2,NAO RECOMENDO,O PRODUTO FOI ENTREGUE POREM FALTANDO PARA AS 2 CADEIRAS A PEÇA FLANGE ASSIM IMPOSSIBILITANDO A MONTAGEM DO MESMO.,Wrong / Incomplete Order,Wrong / Incomplete Order
+77625c9343b4dd4a9536f65e9ea50135,2,,"Entrega incompleta, faltou duas peças",Wrong / Incomplete Order,Wrong / Incomplete Order
+8343719a3a2ba5f03b26696bccdc754c,2,,não recebi o produto. o ptoduto em que eu vi na loja era uma coisa e nao chegou e eu tinha colocado todos os dados corretor ja verifiquei na agencia dos correios e nao estava quero meu reembolso no ma,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+95fbd229320a05e8835ea19d93ba9f1e,2,,Pelo que eu entendi o correio deve ter extraviado minha encomenda.,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+984b33682c48ca8bfd773ebdfd0161fe,2,Item nao entregue,Consta na NF 2 itens orem apenas 1 foi entregue. Ja solicitei informaçao sobre o item faltante.,Wrong / Incomplete Order,Wrong / Incomplete Order
+9f2b23380dcf7e8f6984dbbf19bb3e3f,2,,"Muiita demora na entrega do produto. Protu comprado em 03/03/2018, e até hoje não foi entregue (19/03/2018).",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+ce7e2fea4efc732fbc5fd04753f2e549,2,,produto veio danificado,Damaged / Defective Item,Damaged / Defective Item
+ce9927d9150ae96a67b99a89822ed59f,2,,"Não diria que recebi meu produto. Fui buscar. Paguei o frete, colocaram uma informação equivocada para justificar a não entrega em minha residência (logradouro incorreto) e tive que ir aos Correios.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+d0c925dd85481e3b99bbc725dc56e1a9,2,,O produto q recebi não foi o mesmo q comprei no site,Wrong / Incomplete Order,Wrong / Incomplete Order
+e5faf44e4252434f1b561aa34e1a9ab3,2,,Como a entrega esta muito atrasada não vou fazer nenhuma avaliação,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+e61fcab8b96de0335adf7fd562ebb869,2,Produto mal embalado,"O produto chegou em 2 entregas, só que bem mal embalado, sem aviso de frágil, num papel pardo. Entregaram 2 pacotes em um dia e um pacote no outro. Pacote amassado nas pontas, peças quebradas. Absurdo",Damaged / Defective Item,Damaged / Defective Item
+e78e6c2d9d913cda60562cd825c90374,2,,Recebi o relógio cronometro mas não recebi a argola olímpica.,Wrong / Incomplete Order,Wrong / Incomplete Order
+e864c88c30cc7fb46f79e88de8b6397d,2,,São dois produtos só recebi um é sem nota,Wrong / Incomplete Order,Wrong / Incomplete Order
+16f77b7311d2685235f9c8936da1480f,3,,Muita demora para a entrega.,Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+1c32916fec4ddbdf533e164c2552343f,3,,"O produto chegou com pouco de atraso, mas em perfeitas condições.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+2cee056eb245a8978a5d8a408436e82f,3,Produto bom,Recebi o produto errado.,Wrong / Incomplete Order,Wrong / Incomplete Order
+350f47d61d589f6218bff053db95fe62,3,,Frete muito caro.,Product Quality / Expectation Mismatch,Positive / Other
+491e593aee916fa4bf7b6cabb2f80070,3,,pessoalmente produto com características diferente no tom,Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+5756666ccce49fda0eaf8b9cf57a9b74,3,Boa faca,"Uma boa faca, porém só não veio amolada.",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+614b79e86eb799054a44828c5a2b28e4,3,,"Bom produto,mas a renda não é tão bonita quanto na foto, ela é bem aberta.",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+9224db86cedf958891e1b1afb4ad570c,3,,recebi uma capinha menor q meu aparelho,Wrong / Incomplete Order,Wrong / Incomplete Order
+928292f8c5111a3b8bbe94e6cfc7900f,3,,De Boa qualidade,Positive / Other,Positive / Other
+b210147ed6159ab19baaff71f7e43491,3,,"Gostei muito, só pensei que o material fosse mais resistente.",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+c9229f668c1028a77a433afa8b93f122,3,,"Tudo certo, produto recebido e nota fiscal enviada com o mesmo.",Positive / Other,Positive / Other
+ce678bd6591f2487c9b4f5af45b4619f,3,,"Realizei outras compras pela internet em datas posteriores a esta compra e já recebi os produtos.
+logística deixa a desejar.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+d770c2af072ad47e1f38031aac283ee9,3,,A leiteira foi entregue com a tinta vermelha já arranhada . E pequeno o pedaço sem tinta. Quero o cancelamento da compra.,Damaged / Defective Item,Damaged / Defective Item
+dc1db1e1520b30e1d279a28b53a2f169,3,,Um dos marcadores veio faltando as 4 peças de marcar os pontos,Wrong / Incomplete Order,Wrong / Incomplete Order
+e724300bcd73fb1c467b1c20c33a1fdd,3,,"Boneco bom,mas é um pouco pesado para criança de 2/3 anos. Fiz a devolução pq vi outro mais barato",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+e85ade63f3d697aa6c45970baeff0d96,3,Recomendo muito!,"Recebi no prazo....................recomendo a loja...................preço bom.......................entregou no prazo, só que o prazo era muito grande..................mas valeu pelo preço..........",Positive / Other,Positive / Other
+f090de1b2ed9f4e251662cb31e3c7127,3,,"Não recebi ainda, por culpa do correio.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+f640183c8895bffdd9fbe37601bcdfdc,3,,"O termômetro foi entregue como eu pedi, mas não veio rosca para fixar o termômetro no fogão ! Deveria ser entregue completo e com as instruções para fixar no fogão !",Wrong / Incomplete Order,Wrong / Incomplete Order
+011080783e02d05b26c8c158b3653a42,4,Super recomendo,"produto bem embalado, chegou antes do prazo e de ótima qualidade",Positive / Other,Positive / Other
+053228d082dcc4c3730e511ecd4c9fa0,4,Produto bom,"O produto é bom, porém não chegou em minha residência. Precisei buscar nos correios.",Delivery Delay / Non-Arrival,Delivery Delay / Non-Arrival
+0a20452461e34d59bfd981e9e06fe988,4,,"Produto de qualidade boa.
+Gostei.",Positive / Other,Positive / Other
+0bf48b98131c5057bcb4754449acc91b,4,,"Recebi meu produto num tempo rápido, porém, por se tratar de um líquido deveria ser melhor embalado, pois, meu produto derramou, acho que deveriam colocar isopor na embalagem.",Damaged / Defective Item,Damaged / Defective Item
+0ccec03928b91e74f73a46d5b77c60e5,4,,"muito bom,recomendo,entrega dentro do prazo...",Positive / Other,Positive / Other
+259ed824424260153076008ccc088840,4,,Entrega no prazo .,Positive / Other,Positive / Other
+323d6a7119864c4c95a2a27b45e89b6c,4,,Bom,Positive / Other,Positive / Other
+6a3d17234ba4b82167e2b8d9a6ca6602,4,,"Produto fácil de usar, eficiente.
+Os vidros ficam limpinhos.",Positive / Other,Positive / Other
+76431a049e67e903e616499cb2b32f0c,4,,"Só faltou o produto ser de maior qualidade. Mas funciona tudo corretamente,chegou 1 semana antes do prazo",Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+914ccbb5110ed49b96c301b5fbf8d629,4,bom.,"O produto foi entregue antes do prazo, porém, está desmontado em caixas, como devo proceder para a solicitar a montagem. 
+Aguardo, por favor, um retorno para as devidas providencias. 
+Muito obrigado",Seller / Support Communication,Seller / Support Communication
+a1a26fd368e8d98c468ecd201ea55af8,4,,Entrega antes do prazo produto ótimo recomendo!,Positive / Other,Positive / Other
+a4bc1696d87f667da1b782b7707358ad,4,,Muito bom o acessório a luva.,Positive / Other,Positive / Other
+b269b36952900c5cb25de4f0ee866aba,4,Muito bom,O produto foi entregue dentro do prazo previsto. Gostei recomendo.,Positive / Other,Positive / Other
+b574a73b303733045a8adad4c30d7add,4,Produto chegou,Eu recebi mas nao vi q o acabamento era de plastico muito fino,Product Quality / Expectation Mismatch,Product Quality / Expectation Mismatch
+bc34d5b185152cb88b9f5db391dcd1cb,4,,Tudo certo!!,Positive / Other,Positive / Other
+bddbf3e2e05b552cf012d0d967e75de9,4,,A luminária é muito bonita e possui boa vedação contra chuva e insetos. Agora só falta eu instalar na minha área para torná-la mais bonita graças a esse adereço.,Positive / Other,Positive / Other
+cfe5649887c20d8a27d7a9a2302a9d9b,4,,"Comprei pela 2 vez com vcs. Da 1 vez deu tudo certo com êxito, mais dessa vez não estou satisfeita pois o produto chegou incompleto comprei 2 unid onde chegou 1 unid e ainda divergente.",Wrong / Incomplete Order,Wrong / Incomplete Order
+d607cf247d8e19a82548c3a30cb2d173,4,,Ótimo site,Positive / Other,Positive / Other
+ed697c56bd912fb0016d4a090aa10b2d,4,,"Adorei as peças, são exatamente como na foto. Mas veio faltando parafusos e buchas, tive que comprar.",Wrong / Incomplete Order,Wrong / Incomplete Order
+061295e635460bf36f1bb41bd54fd2d2,5,,Gostei!,Positive / Other,Positive / Other
+21265f499055fc933501ce3a66c1ef9a,5,,Perfeitas amei! Muito rapida entrega,Positive / Other,Positive / Other
+25e8ea4e93396b6fa0d3dd708e76c1bd,5,,Aprovada,Positive / Other,Positive / Other
+2b86b00276fcf833862d7d1c8dfd1607,5,,Excelente ... prazo de entrega excelente !,Positive / Other,Positive / Other
+338be6220254203898339bb8b6021138,5,Tudo perfeito,Mesmo com a paralisação o produto chegou antes do previsto. E vieram sem nenhum problema,Positive / Other,Positive / Other
+34479af2d143031f3a316ed407892b51,5,,otimo,Positive / Other,Positive / Other
+3a13ffce1e0ef24cc710957be4cb9054,5,Escova progressiva,"Entregaram dentro do prazo eu , recomendo",Positive / Other,Positive / Other
+52a0c9afd6d3a9c61af74ea1149c494e,5,,"Comprei o produto apesar de não ter nenhuma avaliação.....fiquei com receio mas.....parece mto bom.....
+Já usei.....é fantástico pela praticidade.....leveza. 
+Já encomendei outra.....
+Recomendo",Positive / Other,Positive / Other
+6917e117776da5f60f8403c2120ecb68,5,Otimo,Amei tudo certinho,Positive / Other,Positive / Other
+73a701180eb8c7933d23e211f735302b,5,Produto pirata,O produto não veio correto pois é pirata e não estava descrito isso na descrição do produto. Estou entrando em contato para trocar pelo original que deveria ser enviado,Wrong / Incomplete Order,Wrong / Incomplete Order
+803f15601207b09e8cf7c80a4fdb1e30,5,,"Recomendo totalmente este site, produto entregue corretamente e antes do prazo estipulado. Parabéns!!!",Positive / Other,Positive / Other
+80e57a9aecdddc40ad34d34dda39838e,5,,Excelente,Positive / Other,Positive / Other
+b8d5cd6eb84d7b61c5c77ac4cb0b90b4,5,,"O produto chegou antes do prazo, vem bem embalado, o que evita quebra. Amei o produto, super lindo.",Positive / Other,Positive / Other
+c5dad23638f05002b5af4579f0437709,5,,Demorou mas dentro do prazo. lannister sempre bem e satisfação. Obrigado,Positive / Other,Positive / Other
+d742edc736f4fa6a173ee4a049322e45,5,,Produto excelente e entrega super rápida.,Positive / Other,Positive / Other
+eec1e7170bc88c845bee8ab6ef36721c,5,,"Produto original com preço excelente, recomendo.",Positive / Other,Positive / Other
+f9d0e3b4c20495f400a845fa3aab20c2,5,,Otimo produto,Positive / Other,Positive / Other
+ffd84ab39cd5e873d8dba24342e65c01,5,,"Produto entregue antes do prazo, tudo ok, loja confiável.",Positive / Other,Positive / Other
