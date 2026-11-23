@@ -124,6 +124,7 @@ def classify_micro_batch(chunk_df: pd.DataFrame, max_retries: int = 6) -> dict[s
     ]
     prompt = "Classify these reviews:\n" + "\n".join(items_text)
 
+    last_error = None
     for attempt in range(1, max_retries + 1):
         model_name = MODELS_TO_TRY[(attempt - 1) % len(MODELS_TO_TRY)]
         try:
@@ -149,11 +150,15 @@ def classify_micro_batch(chunk_df: pd.DataFrame, max_retries: int = 6) -> dict[s
 
             return {item.order_id: item for item in parsed.results}
         except Exception as e:
+            last_error = e
             wait_sec = min(4 * attempt, 20)
             print(f"  Attempt {attempt}/{max_retries} ({model_name}) error ({e}). Retrying in {wait_sec}s...")
             time.sleep(wait_sec)
 
-    return {}
+    raise RuntimeError(
+        f"Micro-batch failed after {max_retries} retries (last error: {last_error}). "
+        "Aborting pipeline to prevent incomplete classification."
+    )
 
 
 def run_pipeline(limit: int | None = None, batch_size: int = 100):
@@ -177,28 +182,35 @@ def run_pipeline(limit: int | None = None, batch_size: int = 100):
         rows_to_insert = []
         for _, row in chunk.iterrows():
             oid = row["order_id"]
-            if oid in res_map:
-                res = res_map[oid]
-                rows_to_insert.append({
-                    "order_id": oid,
-                    "review_id": row["review_id"],
-                    "review_score": int(row["review_score"]),
-                    "stratum_pop_n": int(row["stratum_pop_n"]),
-                    "stratum_sample_n": int(row["stratum_sample_n"]),
-                    "sample_weight": float(row["sample_weight"]),
-                    "primary_issue": res.primary_issue,
-                    "is_complaint": int(res.is_complaint),
-                    "is_dev_set": int(row["is_dev_set"]),
-                })
+            if oid not in res_map:
+                raise KeyError(f"Missing classification result for order_id={oid}")
+            res = res_map[oid]
+            rows_to_insert.append({
+                "order_id": oid,
+                "review_id": row["review_id"],
+                "review_score": int(row["review_score"]),
+                "stratum_pop_n": int(row["stratum_pop_n"]),
+                "stratum_sample_n": int(row["stratum_sample_n"]),
+                "sample_weight": float(row["sample_weight"]),
+                "primary_issue": res.primary_issue,
+                "is_complaint": int(res.is_complaint),
+                "is_dev_set": int(row["is_dev_set"]),
+            })
 
-        if rows_to_insert:
-            pd.DataFrame(rows_to_insert).to_sql("ai_review_tags", con=engine, if_exists="append", index=False)
-            processed_now += len(rows_to_insert)
-            print(f"  Saved {len(rows_to_insert)} rows -> Total in DB: {len(already_done) + processed_now:,} / {len(sample_df):,}")
+        pd.DataFrame(rows_to_insert).to_sql("ai_review_tags", con=engine, if_exists="append", index=False)
+        processed_now += len(rows_to_insert)
+        print(f"  Saved {len(rows_to_insert)} rows -> Total in DB: {len(already_done) + processed_now:,} / {len(sample_df):,}")
 
         time.sleep(1.0)
 
-    print("\nBatch run complete!")
+    final_df = pd.read_sql(text("SELECT order_id FROM ai_review_tags"), engine)
+    if limit is None and set(final_df["order_id"]) != set(sample_df["order_id"]):
+        raise RuntimeError(
+            f"Incomplete classification run: expected {len(sample_df):,} exact order_ids in ai_review_tags, "
+            f"found {len(final_df):,}."
+        )
+
+    print(f"\nBatch run complete! Verified {len(final_df):,} rows in ai_review_tags.")
 
 
 if __name__ == "__main__":
